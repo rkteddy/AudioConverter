@@ -10,11 +10,27 @@ using System.Windows.Forms;
 
 namespace AudioConverter
 {
-    public partial class Form1 : Form
+    public partial class Window : Form
     {
-        public Form1()
+
+        private string inputFile = "Not selected";
+        private string outputFile = "Not set";
+        private string outputType = "";
+
+
+        public Window()
         {
             InitializeComponent();
+        }
+
+        private void typeSelectionBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            outputType = typeSelectionBox.SelectedItem.ToString();
+        }
+
+        private void sourceFileButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
