@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Arbingersys.Audio.Aumplib;
 
 namespace AudioConverter
 {
@@ -15,7 +16,10 @@ namespace AudioConverter
 
         private string inputFile = "Not selected";
         private string outputFile = "Not set";
-        private string outputType = "";
+
+        private Aumpel audioConverter = new Aumpel();
+        private Aumpel.soundFormat inputFileFormat;
+        private Aumpel.soundFormat outputFileFormat;
 
 
         public Window()
@@ -23,14 +27,43 @@ namespace AudioConverter
             InitializeComponent();
         }
 
-        private void typeSelectionBox_SelectedIndexChanged(object sender, EventArgs e)
+        /*
+         * 输出格式选择
+         */
+        private void formatSelectionBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            outputType = typeSelectionBox.SelectedItem.ToString();
+            //outputFileFormat = formatSelectionBox.SelectedItem.ToString();
         }
 
+        /*
+         * 选择转换源文件
+         */ 
         private void sourceFileButton_Click(object sender, EventArgs e)
         {
+            // 打开选择文件窗口
+            OpenFileDialog openFile = new OpenFileDialog();
 
+            openFile.Filter = "MP3 (*.mp3)|*.mp3|WAV (*.wav)" + "*.wav|All Files (*.*)|*.*";
+            openFile.FileName = "";
+
+            openFile.CheckFileExists = true;
+            openFile.CheckPathExists = true;
+
+            if (openFile.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            // 设置输入文件格式
+            try
+            {
+                inputFileFormat = audioConverter.CheckSoundFormat(openFile.FileName);
+            }
+            catch (Exception ex)
+            {
+                ShowExceptionMsg(ex);
+                return;
+            }
         }
     }
 }
