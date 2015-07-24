@@ -29,6 +29,13 @@ namespace AudioConverter
         }
 
         /*
+         * 转换进度
+         */
+         private static void ReportStatus(int totalBytes, int processedBytes, Aumpel aumpelObj)
+        {
+        }
+
+        /*
          * 抛出异常
          */
          private void ShowExceptionMsg(Exception e)
@@ -110,6 +117,16 @@ namespace AudioConverter
                     MessageBox.Show("You must select a valid type to convert to.", "Error", MessageBoxButtons.OK);
                     return;
             }
+
+            // 转换为MP3
+            if ((int)outputFileFormat == (int)Aumpel.soundFormat.MP3)
+            {
+            }
+        }
+
+        private void convertProgressBar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
