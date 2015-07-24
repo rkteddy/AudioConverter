@@ -87,5 +87,12 @@ namespace AudioConverter
             // 设置输出文件格式
             destFileLabel.Text = outputFile = saveFile.FileName;
         }
+
+        private void convertButton_Click(object sender, EventArgs e)
+        {
+
+            // 设置转换格式
+            switch ()
+        }
     }
 }
