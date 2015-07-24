@@ -15,12 +15,13 @@ namespace AudioConverter
     {
 
         private string inputFile = "Not selected";
-        private string outputFile = "Not set";
+        private string outputFile = "Not selected";
 
         private Aumpel audioConverter = new Aumpel();
         private Aumpel.soundFormat inputFileFormat;
         private Aumpel.soundFormat outputFileFormat;
 
+       
 
         public Window()
         {
@@ -34,24 +35,17 @@ namespace AudioConverter
          {
             MessageBox.Show("Exception: " + e.Message, "Exception!", MessageBoxButtons.OK);
          }
-
-        /*
-         * 输出格式选择
-         */
-        private void formatSelectionBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //outputFileFormat = formatSelectionBox.SelectedItem.ToString();
-        }
-
+        
         /*
          * 选择转换源文件
          */ 
-        private void sourceFileButton_Click(object sender, EventArgs e)
+        protected void sourceFileButton_Click(object sender, EventArgs e)
         {
-            // 打开选择文件窗口
+            // 打开文件选择窗口
             OpenFileDialog openFile = new OpenFileDialog();
 
-            openFile.Filter = "MP3 (*.mp3)|*.mp3|WAV (*.wav)" + "*.wav|All Files (*.*)|*.*";
+            openFile.Filter = "MP3 (*.mp3)|*.mp3|" +
+                              "WAV (*.wav)|*.wav|";
             openFile.FileName = "";
 
             openFile.CheckFileExists = true;
@@ -72,6 +66,26 @@ namespace AudioConverter
                 ShowExceptionMsg(ex);
                 return;
             }
+
+        }
+
+        protected void destFileButton_Click(object sender, System.EventArgs e)
+        {
+            // 打开文件选择窗口
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "MP3 (*.mp3)|*.mp3|" +
+                              "WAV (*.wav)|*.wav|" +
+                              "AIFF (*.aiff)|*.aiff|" +
+                              "AU (*.au)|*.au|" +
+                              "All Files (*.*)|*.*|";
+
+            if (saveFile.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            // 设置输出文件格式
+            destFileLabel.Text = outputFile = saveFile.FileName;
         }
     }
 }
