@@ -92,7 +92,24 @@ namespace AudioConverter
         {
 
             // 设置转换格式
-            switch ()
+            switch (formatBox.SelectedItem.ToString())
+            {
+                case "WAV":
+                    outputFileFormat = Aumpel.soundFormat.WAV;
+                    break;
+                case "MP3":
+                    outputFileFormat = Aumpel.soundFormat.MP3;
+                    break;
+                case "AU":
+                    outputFileFormat = Aumpel.soundFormat.AU;
+                    break;
+                case "AIFF":
+                    outputFileFormat = Aumpel.soundFormat.AIFF;
+                    break;
+                default:
+                    MessageBox.Show("You must select a valid type to convert to.", "Error", MessageBoxButtons.OK);
+                    return;
+            }
         }
     }
 }
