@@ -37,16 +37,19 @@ namespace AudioConverter
             this.destFileButton = new System.Windows.Forms.Button();
             this.sourceFileLabel = new System.Windows.Forms.Label();
             this.destFileLabel = new System.Windows.Forms.Label();
+            this.convertButton = new System.Windows.Forms.Button();
+            this.formatBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // sourceFileButton
             // 
-            this.sourceFileButton.Location = new System.Drawing.Point(12, 12);
+            this.sourceFileButton.Location = new System.Drawing.Point(13, 17);
             this.sourceFileButton.Name = "sourceFileButton";
-            this.sourceFileButton.Size = new System.Drawing.Size(95, 35);
+            this.sourceFileButton.Size = new System.Drawing.Size(94, 35);
             this.sourceFileButton.TabIndex = 0;
             this.sourceFileButton.Text = "open";
             this.sourceFileButton.UseVisualStyleBackColor = true;
+            this.sourceFileButton.Click += new System.EventHandler(this.sourceFileButton_Click);
             // 
             // destFileButton
             // 
@@ -75,11 +78,36 @@ namespace AudioConverter
             this.destFileLabel.TabIndex = 3;
             this.destFileLabel.Text = "Not selected";
             // 
+            // convertButton
+            // 
+            this.convertButton.Location = new System.Drawing.Point(13, 189);
+            this.convertButton.Name = "convertButton";
+            this.convertButton.Size = new System.Drawing.Size(94, 35);
+            this.convertButton.TabIndex = 4;
+            this.convertButton.Text = "convert";
+            this.convertButton.UseVisualStyleBackColor = true;
+            this.convertButton.Click += new System.EventHandler(this.convertButton_Click);
+            // 
+            // formatBox
+            // 
+            this.formatBox.FormattingEnabled = true;
+            this.formatBox.Items.AddRange(new object[] {
+            "WAV",
+            "MP3",
+            "AU",
+            "AIFF"});
+            this.formatBox.Location = new System.Drawing.Point(193, 189);
+            this.formatBox.Name = "formatBox";
+            this.formatBox.Size = new System.Drawing.Size(121, 33);
+            this.formatBox.TabIndex = 5;
+            // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 321);
+            this.Controls.Add(this.formatBox);
+            this.Controls.Add(this.convertButton);
             this.Controls.Add(this.destFileLabel);
             this.Controls.Add(this.sourceFileLabel);
             this.Controls.Add(this.destFileButton);
@@ -97,6 +125,8 @@ namespace AudioConverter
         private Button destFileButton;
         private Label sourceFileLabel;
         private Label destFileLabel;
+        private Button convertButton;
+        private ComboBox formatBox;
     }
 }
 
