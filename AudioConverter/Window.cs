@@ -31,7 +31,9 @@ namespace AudioConverter
         /*
          * 转换进度
          */
-         private static void ReportStatus(int totalBytes, int processedBytes, Aumpel aumpelObj)
+         private static void ReportStatus(int totalBytes,
+                                          int processedBytes,
+                                          Aumpel aumpelObj)
         {
         }
 
@@ -40,7 +42,8 @@ namespace AudioConverter
          */
          private void ShowExceptionMsg(Exception e)
          {
-            MessageBox.Show("Exception: " + e.Message, "Exception!", MessageBoxButtons.OK);
+            MessageBox.Show("Exception: " + e.Message, "Exception!",
+                             MessageBoxButtons.OK);
          }
         
         /*
@@ -114,19 +117,38 @@ namespace AudioConverter
                     outputFileFormat = Aumpel.soundFormat.AIFF;
                     break;
                 default:
-                    MessageBox.Show("You must select a valid type to convert to.", "Error", MessageBoxButtons.OK);
+                    MessageBox.Show("You must select a valid type to convert to.",
+                                    "Error",
+                                    MessageBoxButtons.OK);
                     return;
             }
 
             // 转换为MP3
             if ((int)outputFileFormat == (int)Aumpel.soundFormat.MP3)
             {
+                try
+                {
+                    Aumpel.Reporter defaultCallback = new Aumpel.Reporter(ReportStatus);
+
+                    audioConverter.Convert(inputFile, (int)inputFileFormat,
+                                           outputFile, (int)outputFileFormat,
+                                           defaultCallback);
+
+                    convertProgressBar.Value = 0;
+
+                    destFileLabel.Text = outputFile = "";
+                    sourceFileLabel.Text = inputFile = "";
+
+                    MessageBox.Show("Conversion finished.",
+                                    "Done",
+                                    MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    ShowExceptionMsg(ex);
+                    return;
+                }
             }
-        }
-
-        private void convertProgressBar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

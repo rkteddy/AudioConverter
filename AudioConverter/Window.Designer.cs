@@ -108,7 +108,6 @@ namespace AudioConverter
             this.convertProgressBar.Name = "convertProgressBar";
             this.convertProgressBar.Size = new System.Drawing.Size(446, 26);
             this.convertProgressBar.TabIndex = 6;
-            this.convertProgressBar.Click += new System.EventHandler(this.convertProgressBar_Click);
             // 
             // Window
             // 
