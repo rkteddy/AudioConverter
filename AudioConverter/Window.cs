@@ -21,7 +21,7 @@ namespace AudioConverter
         private Aumpel.soundFormat inputFileFormat;
         private Aumpel.soundFormat outputFileFormat;
 
-       
+        public static int soundFileSize = 0;
 
         public Window()
         {
@@ -35,8 +35,19 @@ namespace AudioConverter
                                           int processedBytes,
                                           Aumpel aumpelObj)
         {
+            convertProgressBar.Value =
+                (int)(((float)processedBytes / (float)totalBytes) * 100);
         }
 
+        /*
+         * 解码进度
+         */
+         private static void ReportStatusMad(int frameCount, int byteCount,
+                                             ref MadlldlibWrapper.mad_header mh)
+        {
+            convertProgressBar.Value =
+                (int)(((float)byteCount / (float)soundFileSize) * 100);
+        }
         /*
          * 抛出异常
          */
@@ -123,7 +134,7 @@ namespace AudioConverter
                     return;
             }
 
-            // 转换为MP3
+            // 转换为MP3（Aumpel库）
             if ((int)outputFileFormat == (int)Aumpel.soundFormat.MP3)
             {
                 try
@@ -147,6 +158,16 @@ namespace AudioConverter
                 {
                     ShowExceptionMsg(ex);
                     return;
+                }
+            }
+
+            // MP3转换为其他（Madlldlib库）
+            else if ((int)inputFileFormat == (int)Aumpel.soundFormat.MP3)
+            {
+                try
+                {
+                    MadlldlibWrapper.Callback defaultCallback =
+                        new MadlldlibWrapper.Callback(ReportStatusMad);
                 }
             }
         }
