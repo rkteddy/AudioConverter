@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,11 +43,13 @@ namespace AudioConverter
         /*
          * 解码进度
          */
-         private static void ReportStatusMad(int frameCount, int byteCount,
+         private static bool ReportStatusMad(uint frameCount, uint byteCount,
                                              ref MadlldlibWrapper.mad_header mh)
         {
             convertProgressBar.Value =
                 (int)(((float)byteCount / (float)soundFileSize) * 100);
+
+            return true;
         }
         /*
          * 抛出异常
@@ -168,6 +171,27 @@ namespace AudioConverter
                 {
                     MadlldlibWrapper.Callback defaultCallback =
                         new MadlldlibWrapper.Callback(ReportStatusMad);
+
+                    // 确定文件大小
+                    FileInfo f = new FileInfo(inputFile);
+                    soundFileSize = (int)f.Length;
+
+                    audioConverter.Convert(inputFile,
+                                           outputFile,
+                                           outputFileFormat,
+                                           defaultCallback);
+                    convertProgressBar.Value = 0;
+
+                    destFileLabel.Text = outputFile = "";
+                    sourceFileLabel.Text = inputFile = "";
+
+                    MessageBox.Show("Conversion finifshed.",
+                                     "Done.", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    ShowExceptionMsg(ex);
+                    return;
                 }
             }
         }
