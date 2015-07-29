@@ -194,6 +194,34 @@ namespace AudioConverter
                     return;
                 }
             }
+
+            // 源文件非MP3的转换
+            else
+            {
+                try
+                {
+                    Aumpel.Reporter defaultCallback =
+                        new Aumpel.Reporter(ReportStatus);
+
+                    audioConverter.Convert(inputFile, (int)inputFileFormat,
+                                           outputFile, (int)(outputFileFormat | Aumpel.soundFormat.PCM_16),
+                                           defaultCallback);
+
+                    convertProgressBar.Value = 0;
+
+                    destFileLabel.Text = outputFile = "";
+                    sourceFileLabel.Text = inputFile = "";
+
+                    MessageBox.Show("Conversion finished.",
+                                    "Done.",
+                                    MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    ShowExceptionMsg(ex);
+                    return;
+                }
+            }
         }
     }
 }
