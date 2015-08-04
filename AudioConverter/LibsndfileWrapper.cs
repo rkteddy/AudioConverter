@@ -229,20 +229,20 @@ namespace Arbingersys.Audio.Aumplib
 
 		// External function declarations hence
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern IntPtr 
 		sf_open ([MarshalAs(UnmanagedType.LPStr)] string path, 
 				int mode, 
 				ref SF_INFO soundInfo);
 		
 
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern IntPtr 
 		sf_open_fd (int fd, int mode, 
 				ref SF_INFO soundInfo, int close_desc);
 
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_seek (IntPtr sndfile, 
 				sf_count_t frames, int whence);	
@@ -250,140 +250,140 @@ namespace Arbingersys.Audio.Aumplib
 
 		// 'IntPtr data' replaces 'void *data' in C functions
 
-		[DllImport("libsndfile.dll")] 
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)] 
 		public static extern int 
 		sf_command (IntPtr sndfile, 
 				int command, IntPtr data, int datasize);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern int 
 		sf_error (IntPtr sndfile);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern IntPtr 
 		sf_strerror (IntPtr sndfile);
 	
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern IntPtr 
 		sf_error_number	(int errnum);
 
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern int 
 		sf_perror (IntPtr sndfile);		
 
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern int 
 		sf_error_str (IntPtr sndfile, 
 				[MarshalAs(UnmanagedType.LPStr)] string str, size_t len);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern int 
 		sf_format_check (ref SF_INFO info);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern int 
 		sf_close (IntPtr sndfile);    	
 
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_read_float (IntPtr sndfile, 
 				float[] ptr, sf_count_t items);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_write_float (IntPtr sndfile, 
 				float[] ptr, sf_count_t items);		
 
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_readf_short (IntPtr sndfile, 
 				short[] ptr, sf_count_t frames);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_writef_short (IntPtr sndfile, 
 				short[] ptr, sf_count_t frames);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_readf_int (IntPtr sndfile, 
 				int[] ptr, sf_count_t frames);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_writef_int (IntPtr sndfile, 
 				int[] ptr, sf_count_t frames);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_readf_float (IntPtr sndfile, 
 				float[] ptr, sf_count_t frames);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_writef_float (IntPtr sndfile, 
 				float[] ptr, sf_count_t frames);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_readf_double (IntPtr sndfile, 
 				double[] ptr, 
 				sf_count_t frames);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_writef_double (IntPtr sndfile, 
 				double[] ptr, sf_count_t frames);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_read_short (IntPtr sndfile, 
 				short[] ptr, sf_count_t items);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_write_short (IntPtr sndfile, 
 				short[] ptr, sf_count_t items);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_read_int (IntPtr sndfile, 
 				int[] ptr, sf_count_t items);
 		
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_write_int (IntPtr sndfile, 
 				int[] ptr, sf_count_t items);
 
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_read_double (IntPtr sndfile, 
 				double[] ptr, sf_count_t items);
 
 		
-		[DllImport("libsndfile.dll")]
+		[DllImport("libsndfile.dll", CallingConvention = CallingConvention.Cdecl)]
 		public static extern sf_count_t 
 		sf_write_double (IntPtr sndfile, 
 				double[] ptr, sf_count_t items);
