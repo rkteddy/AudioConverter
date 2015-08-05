@@ -69,7 +69,7 @@ namespace AudioConverter
             OpenFileDialog openFile = new OpenFileDialog();
 
             openFile.Filter = "MP3 (*.mp3)|*.mp3|" +
-                              "WAV (*.wav)|*.wav|";
+                              "WAV (*.wav)|*.wav";
             openFile.FileName = "";
 
             openFile.CheckFileExists = true;
@@ -91,6 +91,8 @@ namespace AudioConverter
                 return;
             }
 
+            sourceFileLabel.Text = inputFile = openFile.FileName;
+
         }
 
         protected void destFileButton_Click(object sender, System.EventArgs e)
@@ -101,7 +103,7 @@ namespace AudioConverter
                               "WAV (*.wav)|*.wav|" +
                               "AIFF (*.aiff)|*.aiff|" +
                               "AU (*.au)|*.au|" +
-                              "All Files (*.*)|*.*|";
+                              "All Files (*.*)|*.*";
 
             if (saveFile.ShowDialog() != DialogResult.OK)
             {
@@ -222,12 +224,6 @@ namespace AudioConverter
                     return;
                 }
             }
-        }
-
-        // 运行
-        public static void Main()
-        {
-            Application.Run(new Window());
         }
     }
 }
