@@ -1,0 +1,9 @@
+C:\Users\zrk83\Documents\Visual Studio 2015\Projects\AudioConverter\AudioConverter\bin\x86\Debug\AudioConverter.exe.config
+C:\Users\zrk83\Documents\Visual Studio 2015\Projects\AudioConverter\AudioConverter\bin\x86\Debug\AudioConverter.exe
+C:\Users\zrk83\Documents\Visual Studio 2015\Projects\AudioConverter\AudioConverter\bin\x86\Debug\AudioConverter.pdb
+C:\Users\zrk83\Documents\Visual Studio 2015\Projects\AudioConverter\AudioConverter\obj\x86\Debug\AudioConverter.Properties.Resources.resources
+C:\Users\zrk83\Documents\Visual Studio 2015\Projects\AudioConverter\AudioConverter\obj\x86\Debug\AudioConverter.Window.resources
+C:\Users\zrk83\Documents\Visual Studio 2015\Projects\AudioConverter\AudioConverter\obj\x86\Debug\AudioConverter.csproj.GenerateResource.Cache
+C:\Users\zrk83\Documents\Visual Studio 2015\Projects\AudioConverter\AudioConverter\obj\x86\Debug\AudioConverter.exe
+C:\Users\zrk83\Documents\Visual Studio 2015\Projects\AudioConverter\AudioConverter\obj\x86\Debug\AudioConverter.pdb
+C:\Users\zrk83\Documents\Visual Studio 2015\Projects\AudioConverter\AudioConverter\obj\x86\Debug\AudioConverter.csprojResolveAssemblyReference.cache

@@ -60,6 +60,7 @@ namespace AudioConverter
             this.destFileButton.TabIndex = 1;
             this.destFileButton.Text = "save";
             this.destFileButton.UseVisualStyleBackColor = true;
+            this.destFileButton.Click += new System.EventHandler(this.destFileButton_Click);
             // 
             // sourceFileLabel
             // 
