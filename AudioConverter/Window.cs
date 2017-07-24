@@ -28,6 +28,14 @@ namespace AudioConverter
         }
 
         /*
+         * 抛出异常
+         */
+         private void ShowExceptionMsg(Exception e)
+         {
+            MessageBox.Show("Exception: " + e.Message, "Exception!", MessageBoxButtons.OK);
+         }
+
+        /*
          * 输出格式选择
          */
         private void formatSelectionBox_SelectedIndexChanged(object sender, EventArgs e)
