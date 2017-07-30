@@ -39,7 +39,7 @@ namespace AudioConverter
             this.destFileLabel = new System.Windows.Forms.Label();
             this.convertButton = new System.Windows.Forms.Button();
             this.formatBox = new System.Windows.Forms.ComboBox();
-            this.convertProgressBar = new System.Windows.Forms.ProgressBar();
+            convertProgressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // sourceFileButton
@@ -104,17 +104,17 @@ namespace AudioConverter
             // 
             // convertProgressBar
             // 
-            this.convertProgressBar.Location = new System.Drawing.Point(13, 266);
-            this.convertProgressBar.Name = "convertProgressBar";
-            this.convertProgressBar.Size = new System.Drawing.Size(446, 26);
-            this.convertProgressBar.TabIndex = 6;
+            convertProgressBar.Location = new System.Drawing.Point(13, 266);
+            convertProgressBar.Name = "convertProgressBar";
+            convertProgressBar.Size = new System.Drawing.Size(446, 26);
+            convertProgressBar.TabIndex = 6;
             // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 321);
-            this.Controls.Add(this.convertProgressBar);
+            this.Controls.Add(convertProgressBar);
             this.Controls.Add(this.formatBox);
             this.Controls.Add(this.convertButton);
             this.Controls.Add(this.destFileLabel);
@@ -136,7 +136,7 @@ namespace AudioConverter
         private Label destFileLabel;
         private Button convertButton;
         private ComboBox formatBox;
-        private ProgressBar convertProgressBar;
+        private static ProgressBar convertProgressBar;
     }
 }
 
