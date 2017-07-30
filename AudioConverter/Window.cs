@@ -223,5 +223,11 @@ namespace AudioConverter
                 }
             }
         }
+
+        // 运行
+        public static void Main()
+        {
+            Application.Run(new Window());
+        }
     }
 }
